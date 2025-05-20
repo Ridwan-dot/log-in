@@ -55,7 +55,7 @@
     #tableCon {
       width: 90%;
       margin: 30px auto;
-      display: none;
+      /* display: none; */
     }
 
     table {
@@ -161,12 +161,13 @@
       localStorage.setItem("database", JSON.stringify(database))
       updateTable()
       document.getElementById("signupForm").reset()
+      window.location.href = "login.html"
     }
 
     function updateTable() {
     let tableBody = document.getElementById("tableBody")
     let tableCon = document.getElementById("tableCon")
-    tableCon.style.display = "block"
+    // tableCon.style.display = "block"
 
     tableBody.innerHTML = ""
 
