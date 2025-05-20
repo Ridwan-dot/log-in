@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Signup Form</title>
@@ -15,7 +16,7 @@
       background: white;
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     }
 
     h2 {
@@ -63,11 +64,14 @@
       border-collapse: collapse;
     }
 
-    table, th, td {
+    table,
+    th,
+    td {
       border: 1px solid #00796b;
     }
 
-    th, td {
+    th,
+    td {
       padding: 10px;
       text-align: left;
     }
@@ -78,6 +82,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <div class="container">
@@ -125,15 +130,15 @@
         return
       }
 
-      
+
       let currentUser = database.find((i) => {
         return i.email === email
-    })
+      })
 
       if (currentUser) {
         alert("This email has already been used")
         return
-    }
+      }
 
       if (password.length < 9) {
         alert("Password must be more than 8 characters")
@@ -150,11 +155,13 @@
         return
       }
 
-      
+
       let user = {
         fullname: fullname,
         email: email,
-        password: password
+        password: password,
+        blogPosts: [],
+        profilePicture: null
       }
 
       database.push(user)
@@ -165,14 +172,14 @@
     }
 
     function updateTable() {
-    let tableBody = document.getElementById("tableBody")
-    let tableCon = document.getElementById("tableCon")
-    // tableCon.style.display = "block"
+      let tableBody = document.getElementById("tableBody")
+      let tableCon = document.getElementById("tableCon")
+      // tableCon.style.display = "block"
 
-    tableBody.innerHTML = ""
+      tableBody.innerHTML = ""
 
-    for (let i = 0; i < database.length; i++) {
-    tableBody.innerHTML = tableBody.innerHTML + `
+      for (let i = 0; i < database.length; i++) {
+        tableBody.innerHTML = tableBody.innerHTML + `
       <tr>
         <td>${i + 1}</td>
         <td>${database[i].fullname}</td>
@@ -180,9 +187,10 @@
         <td>${database[i].password}</td>
       </tr>
     `
-  }
-}
+      }
+    }
   </script>
 
 </body>
+
 </html>
